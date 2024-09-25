@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Fullstack Crypto Marketplace</title>
+</head>
+
+<body>
+
+    <div class="overlay" id="menuOverlay">
+        <button id="closeMenu" aria-label="Close menu"><i class="ri-close-circle-line"></i></button>
+        <div class="nav-links">
+            <a href="/index.html" class="active">Home</a>
+            <a href="/pages/charts.html">Charts</a>
+            <a href="/pages/about.html">About Us</a>
+        </div>
+    </div>
+
+    <div class="main">
+        <nav>
+            <div class="left-section">
+                <button id="openMenu" aria-label="Open menu"><i class="ri-menu-line"></i></button>
+                <a href="/index.html" class="active">Home</a>
+                <a href="/pages/charts.html">Charts</a>
+               <a href="/pages/about.html">About Us</a>
+            </div>
+            <div class="right-section">
+                <form class="search" id="searchForm" role="search">
+                    <i class="ri-search-line"></i>
+                    <input type="text" id="searchInput" placeholder="Search for an asset..." required autocomplete="off" aria-label="Search input">
+                </form>
+                <button id="theme-toggle" aria-label="Toggle theme"><i class="ri-sun-line"></i></button>
+            </div>
+        </nav>
+
+        <div class="global">
+            <p>Coins: <b id="coins-count">N/A</b></p>
+            <p>Exchanges: <b id="exchanges-count">N/A</b></p>
+            <p>Market Cap: <span><b id="marketCap">N/A</b> <span id="marketCapChange">N/A <i class="ri-arrow-down-s-fill"></i></span></span></p>
+            <p>24H Vol: <b id="volume">N/A</b></p>
+            <p>Dominance: <b id="dominance">BTC N/A% - ETH N/A%</b></p>
+        </div>
+
+        <div class="trending">
+            <div class="coins-wrapper">
+                <h3>Trending Coins</h3>
+                <div id="coins-list"></div>
+                <div class="spinner" id="coins-list-spinner"></div>
+                <div class="error-message" id="coins-list-error">API limit reached. Please try again later.</div>
+            </div>
+            <div class="nfts-wrapper">
+                <h3>Trending NFTs</h3>
+                <div id="nfts-list"></div>
+                <div class="spinner" id="nfts-list-spinner"></div>
+                <div class="error-message" id="nfts-list-error">API limit reached. Please try again later.</div>
+            </div>
+        </div>
+
+        <div class="tab-container">
+            <div class="tabs">
+                <button class="tab-button active" onclick="openTab(event, 'tab1')">Assets</button>
+                <button class="tab-button" onclick="openTab(event, 'tab2')">Exchanges</button>
+                <button class="tab-button" onclick="openTab(event, 'tab3')">Categories</button>
+                <button class="tab-button" onclick="openTab(event, 'tab4')">Holders</button>
+            </div>
+            <div class="tab-content" id="tab1">
+                <div id="asset-list"></div>
+                <div class="spinner" id="asset-list-spinner"></div>
+                <div class="error-message" id="asset-list-error">API limit reached. Please try again later.</div>
+            </div>
+            <div class="tab-content" id="tab2">
+                <div id="exchange-list"></div>
+                <div class="spinner" id="exchange-list-spinner"></div>
+                <div class="error-message" id="exchange-list-error">API limit reached. Please try again later.</div>
+            </div>
+            <div class="tab-content" id="tab3">
+                <div id="category-list"></div>
+                <div class="spinner" id="category-list-spinner"></div>
+                <div class="error-message" id="category-list-error">API limit reached. Please try again later.</div>
+            </div>
+            <div class="tab-content" id="tab4">
+                <div id="company-list"></div>
+                <div class="spinner" id="company-list-spinner"></div>
+                <div class="error-message" id="company-list-error">API limit reached. Please try again later.</div>
+            </div>
+        </div>
+    </div>
+
+    <button onclick="scrollToTop()" id="scrollTop" aria-label="Scroll to top"><i class="ri-arrow-up-s-line"></i></button>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="assets/js/global.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script>
+        document.getElementById('scrollTop').addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        document.getElementById('openMenu').addEventListener('click', function() {
+            document.getElementById('menuOverlay').style.display = 'block';
+        });
+        document.getElementById('closeMenu').addEventListener('click', function() {
+            document.getElementById('menuOverlay').style.display = 'none';
+        });
+    </script>
+</body>
+
+</html>
